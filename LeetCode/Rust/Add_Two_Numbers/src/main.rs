@@ -1,70 +1,141 @@
-// https://leetcode.com/problems/add-two-numbers/
-// Add Two Numbers
-// Medium
+#[derive(PartialEq, Eq, Clone, Debug)]
+pub struct ListNode {
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
+}
 
-use std::cmp;
+impl ListNode {
+    #[inline]
+    fn new(val: i32) -> Self {
+        ListNode { next: None, val }
+    }
+}
+
 fn main() {
-    let l1 = vec![2, 4, 3];
-    let l2 = vec![5, 6, 4];
-    let mut result: Vec<usize> = Vec::new();
+    //Setup
+    //list1
+    let mut l1_1 = Some(Box::new(ListNode::new(2)));
+    let mut l1_2 = Some(Box::new(ListNode::new(4)));
+    // let l1_3 = Some(Box::new(ListNode::new(3)));
+    // l1_2.as_mut().unwrap().next = l1_3.clone();
+    l1_1.as_mut().unwrap().next = l1_2.clone();
 
-    // find longest list
-    let longest = cmp::max(l1.len(), l2.len());
-    let smallest = cmp::min(l1.len(), l2.len());
-    let mut temp: Vec<usize> = Vec::new();
-    for i in 0..longest {
-        if i < smallest && temp.is_empty() {
-            let value = l1[i] + l2[i];
-            if value > 9 {
-                temp.push(1);
-                result.push(value % 10);
-            } else {
-                println!("{}", value);
-                result.push(value);
-            }
-        } else if i < smallest {
-            // temp has value
-            let value = l1[i] + l2[i];
-            if value > 9 {
-                // 1 already in temp no need to modify just add 1
-                result.push((value % 10) + 1);
-            } else {
-                result.push(value + 1);
-                temp.pop();
-            }
-        } else if temp.is_empty() {
-            if l1.len() == longest {
-                result.push(l1[i]);
-            } else {
-                result.push(l2[i]);
-            }
-        } else {
-            if l1.len() == longest {
-                let value = l1[i] + 1;
-                if value > 9 {
-                    result.push(value % 10);
-                    //still 1 in temp dont need pop
-                } else {
-                    result.push(value);
-                    temp.pop();
-                }
-            } else {
-                let value = l2[i];
-                if value > 9 {
-                    result.push(value % 10);
-                    //still 1 in temp dont need pop
-                } else {
-                    result.push(value);
-                    temp.pop();
-                }
-            }
-        }
+    //list2
+    let mut l2_1 = Some(Box::new(ListNode::new(5)));
+    let mut l2_2 = Some(Box::new(ListNode::new(6)));
+    let l2_3 = Some(Box::new(ListNode::new(4)));
+    l2_2.as_mut().unwrap().next = l2_3.clone();
+    l2_1.as_mut().unwrap().next = l2_2.clone();
+
+    // let mut head = Some(Box::new(ListNode::new(0)));
+    // head.as_mut().unwrap().next = Some(Box::new(ListNode::new(2)));
+    // head.as_mut().unwrap().next.as_mut().unwrap().next = Some(Box::new(ListNode::new(4)));
+    // head.as_mut()
+    //     .unwrap()
+    //     .next
+    //     .as_mut()
+    //     .unwrap()
+    //     .next
+    //     .as_mut()
+    //     .unwrap()
+    //     .next = Some(Box::new(ListNode::new(3)));
+    // println!("{}", head.clone().unwrap().val);
+    // println!("{}", head.unwrap().next.unwrap().val);
+
+    // l1_second.next = Some(Box::new(l1_third.clone()));
+    // l1_first.next = Some(Box::new(l1_second.clone()));
+    // let mut current = add_two_numbers(l1_1, l1_2.clone());
+    // println!("{}", current.unwrap().val);
+    let mut current = add_two_numbers(l1_1, l2_1);
+    while current.is_some() {
+        println!("{}", current.clone().unwrap().val);
+        current = current.unwrap().next;
     }
-    if !temp.is_empty() {
-        result.push(1);
+    // println!("{}", add_two_numbers(l1_2, l2_2).unwrap().val);
+
+    // let mut current = l1_1;
+    // while current.is_some() {
+    //     println!("{}", current.clone().unwrap().val);
+    //     current = current.unwrap().next;
+    // }
+
+    // while let Some(node) = current {
+    //     println!("{}", current.unwrap().val);
+    //     current = node.next;
+    // }
+
+    // println!("{}", l1_first.unwrap().val);
+    // println!("{}", l1_second.unwrap().val);
+    // println!("{}", l1_third.unwrap().val);
+}
+
+// virker
+// fn add_two_numbers(
+//     mut l1: Option<Box<ListNode>>,
+//     mut l2: Option<Box<ListNode>>,
+// ) -> Option<Box<ListNode>> {
+//     if l1.as_mut().unwrap().next.is_none() || l2.as_mut().unwrap().next.is_none() {
+//         return Some(Box::new(ListNode::new(l1.unwrap().val + l2.unwrap().val)));
+//     }
+//     let val = l1.as_mut().unwrap().val + l2.as_mut().unwrap().val;
+//     let mut node = Some(Box::new(ListNode::new(val)));
+//     node.as_mut().unwrap().next = add_two_numbers(l1.unwrap().next, l2.unwrap().next);
+
+//     return node;
+// }
+
+fn add_two_numbers(
+    mut l1: Option<Box<ListNode>>,
+    mut l2: Option<Box<ListNode>>,
+) -> Option<Box<ListNode>> {
+    if l1.is_none() && l2.is_some() {
+        let mut new_node = Some(Box::new(ListNode::new(l2.clone().unwrap().val)));
+        new_node.as_mut().unwrap().next = add_two_numbers(None, l2.unwrap().next);
+        return new_node;
+    } else if l2.is_none() && l1.is_some() {
+        let mut new_node = Some(Box::new(ListNode::new(l1.clone().unwrap().val)));
+        new_node.as_mut().unwrap().next = add_two_numbers(l1.unwrap().next, None);
+        return new_node;
+    } else {
+        if l1.as_mut().unwrap().next.is_none() && l2.as_mut().unwrap().next.is_some() {
+            let mut new_node = Some(Box::new(ListNode::new(l2.clone().unwrap().val)));
+            new_node.as_mut().unwrap().next = add_two_numbers(None, l2.unwrap().next);
+            return new_node;
+        } else if l2.as_mut().unwrap().next.is_none() && l1.as_mut().unwrap().next.is_some() {
+            let mut new_node = Some(Box::new(ListNode::new(l1.clone().unwrap().val)));
+            new_node.as_mut().unwrap().next = add_two_numbers(l1.unwrap().next, None);
+            return new_node;
+        };
     }
 
-    for x in result {
-        print!("{}", x);
+    // if l1.as_mut().unwrap().next.is_none() && l2.as_mut().unwrap().next.is_some() {
+    //     let mut new_node = Some(Box::new(ListNode::new(l2.clone().unwrap().val)));
+    //     new_node.as_mut().unwrap().next = add_two_numbers(None, l2.unwrap().next);
+    //     return new_node;
+    // } else if l2.as_mut().unwrap().next.is_none() && l1.as_mut().unwrap().next.is_some() {
+    //     let mut new_node = Some(Box::new(ListNode::new(l1.clone().unwrap().val)));
+    //     new_node.as_mut().unwrap().next = add_two_numbers(l1.unwrap().next, None);
+    //     return new_node;
+    // };
+
+    // if l1.as_mut().unwrap().next.is_none() && l2.as_mut().unwrap().next.is_none() {
+    //     return Some(Box::new(ListNode::new(l1.unwrap().val + l2.unwrap().val)));
+    // }
+
+    let value = l1.as_mut().unwrap().val + l2.as_mut().unwrap().val;
+    if value > 9 {
+        let mut new_node = Some(Box::new(ListNode::new(value % 10)));
+        // while lists are same length just a 1 to one of them
+        // let mut new_l1 = l1.unwrap().next;
+        // new_l1.as_mut().unwrap().val += 1;
+        new_node.as_mut().unwrap().next = add_two_numbers(l1.unwrap().next, l2.unwrap().next);
+        new_node.as_mut().unwrap().next.as_mut().unwrap().val += 1;
+        return new_node;
     }
+    let mut new_node = Some(Box::new(ListNode::new(
+        l1.clone().unwrap().val + l2.clone().unwrap().val,
+    )));
+    new_node.as_mut().unwrap().next =
+        add_two_numbers(l1.clone().unwrap().next, l2.clone().unwrap().next);
+    return new_node;
 }
