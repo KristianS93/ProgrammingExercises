@@ -1,0 +1,252 @@
+// https://open.kattis.com/problems/keylogger
+// Rust
+// Easy
+
+use std::io::stdin;
+
+fn main() {
+    let mut input: String = String::new();
+    stdin().read_line(&mut input).unwrap();
+    let click = input.trim().parse::<usize>().unwrap();
+    let mut caps_lock = false;
+    let mut shift_active = false;
+
+    let mut result_scope: Vec<&str> = Vec::new();
+
+    for _ in 0..click {
+        let mut input: String = String::new();
+        stdin().read_line(&mut input).unwrap();
+
+        let mut upper = false;
+        if (caps_lock && !shift_active) || (!caps_lock && shift_active) {
+            upper = true;
+        }
+
+        let mut output: &str = "";
+
+        match input.trim() {
+            "whack" => output.,
+            "bump" => caps_lock = !caps_lock,
+            "pop" => {
+                if !result_scope.is_empty() {
+                    result_scope.pop();
+                }
+            }
+            "dink" => shift_active = true,
+            "thumb" => shift_active = false,
+            "clank" => {
+                if upper {
+                    result_scope.push("A");
+                } else {
+                    result_scope.push("a");
+                }
+            }
+            "bong" => {
+                if upper {
+                    result_scope.push("B");
+                } else {
+                    result_scope.push("b");
+                }
+            }
+            "click" => {
+                if upper {
+                    result_scope.push("C");
+                } else {
+                    result_scope.push("c");
+                }
+            }
+            "tap" => {
+                if upper {
+                    result_scope.push("D");
+                } else {
+                    result_scope.push("d");
+                }
+            }
+            "poing" => {
+                if upper {
+                    result_scope.push("E");
+                } else {
+                    result_scope.push("e");
+                }
+            }
+            "clonk" => {
+                if upper {
+                    result_scope.push("F");
+                } else {
+                    result_scope.push("f");
+                }
+            }
+            "clack" => {
+                if upper {
+                    result_scope.push("G");
+                } else {
+                    result_scope.push("g");
+                }
+            }
+            "ping" => {
+                if upper {
+                    result_scope.push("H");
+                } else {
+                    result_scope.push("h");
+                }
+            }
+            "tip" => {
+                if upper {
+                    result_scope.push("I");
+                } else {
+                    result_scope.push("i");
+                }
+            }
+            "cloing" => {
+                if upper {
+                    result_scope.push("J");
+                } else {
+                    result_scope.push("j");
+                }
+            }
+            "tic" => {
+                if upper {
+                    result_scope.push("K");
+                } else {
+                    result_scope.push("k");
+                }
+            }
+            "cling" => {
+                if upper {
+                    result_scope.push("L");
+                } else {
+                    result_scope.push("l");
+                }
+            }
+            "bing" => {
+                if upper {
+                    result_scope.push("M");
+                } else {
+                    result_scope.push("m");
+                }
+            }
+            "pong" => {
+                if upper {
+                    result_scope.push("N");
+                } else {
+                    result_scope.push("n");
+                }
+            }
+            "clang" => {
+                if upper {
+                    result_scope.push("O");
+                } else {
+                    result_scope.push("o");
+                }
+            }
+            "pang" => {
+                if upper {
+                    result_scope.push("P");
+                } else {
+                    result_scope.push("p");
+                }
+            }
+            "clong" => {
+                if upper {
+                    result_scope.push("Q");
+                } else {
+                    result_scope.push("q");
+                }
+            }
+            "tac" => {
+                if upper {
+                    result_scope.push("R");
+                } else {
+                    result_scope.push("r");
+                }
+            }
+            "boing" => {
+                if upper {
+                    result_scope.push("S");
+                } else {
+                    result_scope.push("s");
+                }
+            }
+            "boink" => {
+                if upper {
+                    result_scope.push("T");
+                } else {
+                    result_scope.push("t");
+                }
+            }
+            "cloink" => {
+                if upper {
+                    result_scope.push("U");
+                } else {
+                    result_scope.push("u");
+                }
+            }
+            "rattle" => {
+                if upper {
+                    result_scope.push("V");
+                } else {
+                    result_scope.push("v");
+                }
+            }
+            "clock" => {
+                if upper {
+                    result_scope.push("W");
+                } else {
+                    result_scope.push("w");
+                }
+            }
+            "toc" => {
+                if upper {
+                    result_scope.push("X");
+                } else {
+                    result_scope.push("x");
+                }
+            }
+            "clink" => {
+                if upper {
+                    result_scope.push("Y");
+                } else {
+                    result_scope.push("y");
+                }
+            }
+            "tuc" => {
+                if upper {
+                    result_scope.push("Z");
+                } else {
+                    result_scope.push("z");
+                }
+            }
+            _ => continue,
+        }
+    }
+
+    for x in result_scope {
+        print!("{}", x);
+    }
+}
+
+// let mut result: Vec<(String, String)> = inputs
+// .clone()
+// .into_iter()
+// .filter(|(x, _)| x.eq(&input.trim()))
+// .map(|(x, y)| {
+//     if (caps_lock && !shift_active) || (!caps_lock && shift_active) {
+//         return (x, y.to_uppercase());
+//     }
+//     return (x, y);
+// })
+// .collect();
+// let temp = result.pop().unwrap();
+
+// match (temp.0.as_str(), temp.1.as_str()) {
+// ("whack", "") => result_scope.push(" ".to_string()),
+// ("bump", "") => caps_lock = !caps_lock,
+// ("pop", "") => {
+//     if !result_scope.is_empty() {
+//         result_scope.pop();
+//     }
+// }
+// ("dink", "") => shift_active = true,
+// ("thumb", "") => shift_active = false,
+// _ => result_scope.push(temp.1),
+// }

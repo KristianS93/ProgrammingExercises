@@ -5,39 +5,39 @@
 use std::{collections::HashMap, io::stdin};
 
 fn main() {
-    let mut map: HashMap<String, String> = HashMap::new();
+    let mut map: HashMap<&str, &str> = HashMap::new();
     let inputs = vec![
-        ("clank".to_string(), "a".to_string()),
-        ("bong".to_string(), "b".to_string()),
-        ("click".to_string(), "c".to_string()),
-        ("tap".to_string(), "d".to_string()),
-        ("poing".to_string(), "e".to_string()),
-        ("clonk".to_string(), "f".to_string()),
-        ("clack".to_string(), "g".to_string()),
-        ("ping".to_string(), "h".to_string()),
-        ("tip".to_string(), "i".to_string()),
-        ("cloing".to_string(), "j".to_string()),
-        ("tic".to_string(), "k".to_string()),
-        ("cling".to_string(), "l".to_string()),
-        ("bing".to_string(), "m".to_string()),
-        ("pong".to_string(), "n".to_string()),
-        ("clang".to_string(), "o".to_string()),
-        ("pang".to_string(), "p".to_string()),
-        ("clong".to_string(), "q".to_string()),
-        ("tac".to_string(), "r".to_string()),
-        ("boing".to_string(), "s".to_string()),
-        ("boink".to_string(), "t".to_string()),
-        ("cloink".to_string(), "u".to_string()),
-        ("rattle".to_string(), "v".to_string()),
-        ("clock".to_string(), "w".to_string()),
-        ("toc".to_string(), "x".to_string()),
-        ("clink".to_string(), "y".to_string()),
-        ("tuc".to_string(), "z".to_string()),
-        ("whack".to_string(), " ".to_string()),
-        ("bump".to_string(), String::new()),
-        ("pop".to_string(), String::new()),
-        ("dink".to_string(), String::new()),
-        ("thumb".to_string(), String::new()),
+        ("clank", "a"),
+        ("bong", "b"),
+        ("click", "c"),
+        ("tap", "d"),
+        ("poing", "e"),
+        ("clonk", "f"),
+        ("clack", "g"),
+        ("ping", "h"),
+        ("tip", "i"),
+        ("cloing", "j"),
+        ("tic", "k"),
+        ("cling", "l"),
+        ("bing", "m"),
+        ("pong", "n"),
+        ("clang", "o"),
+        ("pang", "p"),
+        ("clong", "q"),
+        ("tac", "r"),
+        ("boing", "s"),
+        ("boink", "t"),
+        ("cloink", "u"),
+        ("rattle", "v"),
+        ("clock", "w"),
+        ("toc", "x"),
+        ("clink", "y"),
+        ("tuc", "z"),
+        ("whack", " "),
+        ("bump", ""),
+        ("pop", ""),
+        ("dink", ""),
+        ("thumb", ""),
     ];
 
     for input in inputs {
@@ -50,16 +50,16 @@ fn main() {
     let mut caps_lock = false;
     let mut shift_active = false;
 
-    let mut result_scope: Vec<String> = Vec::new();
+    let mut result_scope: Vec<&str> = Vec::new();
 
     for _ in 0..click {
         let mut input: String = String::new();
         stdin().read_line(&mut input).unwrap();
 
-        let value = map.get_key_value(&input.trim().to_string());
+        let value = map.get_key_value(&input.trim());
         match value {
-            Some((x, y)) => match (x.as_str(), y.as_str()) {
-                ("whack", "") => result_scope.push(" ".to_string()),
+            Some((x, y)) => match (*x, *y) {
+                ("whack", "") => result_scope.push(" "),
                 ("bump", "") => caps_lock = !caps_lock,
                 ("pop", "") => {
                     if !result_scope.is_empty() {
@@ -70,9 +70,10 @@ fn main() {
                 ("thumb", "") => shift_active = false,
                 _ => {
                     if (caps_lock && !shift_active) || (!caps_lock && shift_active) {
-                        result_scope.push(y.clone().to_uppercase());
+                        // let u = y.to_uppercase().to_string();
+                        result_scope.push(y);
                     } else {
-                        result_scope.push(y.clone());
+                        result_scope.push(x);
                     }
                 }
             },
