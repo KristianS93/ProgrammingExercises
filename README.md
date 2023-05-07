@@ -18,3 +18,5 @@ For Kattis, LeetCode, Advent Of Code, and others.
 |[Oddities](https://open.kattis.com/problems/oddities)|Easy|Rust|
 |[Pet](https://open.kattis.com/problems/pet)|Easy|Rust|
 |[Quick Estimate](https://open.kattis.com/problems/quickestimate)|Easy|Rust|
+
+sd
