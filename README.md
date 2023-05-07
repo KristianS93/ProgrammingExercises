@@ -4,7 +4,7 @@ For Kattis, LeetCode, Advent Of Code, and others.
 
 |Problem Name|Difficulty|Language|
 |--|--|--|
-|[Bijele](https://open.kattis.com/problems/bijele)|Easy|[Rust](https://github.com/KristianS93/ProgrammingExercises/blob/master/Kattis/Rust/bijele/src/main.rs|)
+|[Bijele](https://open.kattis.com/problems/bijele)|Easy|Rust(https://github.com/KristianS93/ProgrammingExercises/blob/master/Kattis/Rust/bijele/src/main.rs|)
 |[Birthday Memorization](https://open.kattis.com/problems/fodelsedagsmemorisering)|Easy|[Rust](https://github.com/KristianS93/ProgrammingExercises/blob/master/Kattis/Rust/birthday memorization/src/main.rs|)
 |[Cetvrta](https://open.kattis.com/problems/cetvrta)|Easy|[Rust](https://github.com/KristianS93/ProgrammingExercises/blob/master/Kattis/Rust/cetvrta/src/main.rs|)
 |[Datum](https://open.kattis.com/problems/datum)|Easy|[Rust](https://github.com/KristianS93/ProgrammingExercises/blob/master/Kattis/Rust/datum/src/main.rs|)
