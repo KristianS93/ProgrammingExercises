@@ -2,5 +2,4 @@
 For Kattis, LeetCode, Advent Of Code, and others. 
 
 
-|Problem Name|Difficulty|Language|
-|--|--|--|
+|Problem Name|Difficulty|Language|\n|--|--|--|\n|[Bijele](https://open.kattis.com/problems/bijele)|Easy|Rust|\n|[Birthday Memorization](https://open.kattis.com/problems/fodelsedagsmemorisering)|Easy|Rust|\n|[Cetvrta](https://open.kattis.com/problems/cetvrta)|Easy|Rust|\n|[Datum](https://open.kattis.com/problems/datum)|Easy|Rust|\n|[Filip](https://open.kattis.com/problems/filip)|Easy|Rust|\n|[Fizz Buzz](https://open.kattis.com/problems/fizzbuzz)|Easy|Rust|\n|[Keylogger](https://open.kattis.com/problems/keylogger)|Easy|Rust|\n|[Knight Packing](https://open.kattis.com/problems/knightpacking)|Easy|Rust|\n|[Moderate Pace](https://open.kattis.com/problems/moderatepace)|Easy|Rust|\n|[Number Fun](https://open.kattis.com/problems/numberfun)|Easy|Rust|\n|[Odd Man Out](https://open.kattis.com/problems/oddmanout)|Easy|Rust|\n|[Oddities](https://open.kattis.com/problems/oddities)|Easy|Rust|\n|[Pet](https://open.kattis.com/problems/pet)|Easy|Rust|\n|[Quick Estimate](https://open.kattis.com/problems/quickestimate)|Easy|Rust|
