@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeetCode", "NeetCode\NeetCode.csproj", "{89B36A1F-B655-4076-9C9A-0527E59E48E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeetCode_Test", "NeetCode_Test\NeetCode_Test.csproj", "{04DCD577-00B2-41CE-B062-8B3C0DBA6FF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89B36A1F-B655-4076-9C9A-0527E59E48E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B36A1F-B655-4076-9C9A-0527E59E48E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B36A1F-B655-4076-9C9A-0527E59E48E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B36A1F-B655-4076-9C9A-0527E59E48E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04DCD577-00B2-41CE-B062-8B3C0DBA6FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04DCD577-00B2-41CE-B062-8B3C0DBA6FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04DCD577-00B2-41CE-B062-8B3C0DBA6FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04DCD577-00B2-41CE-B062-8B3C0DBA6FF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
