@@ -1,6 +1,7 @@
 // https://open.kattis.com/problems/knightpacking
 // Rust
 // Easy
+// Knight Packing
 
 use std::io::stdin;
 

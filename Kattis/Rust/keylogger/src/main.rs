@@ -1,6 +1,7 @@
 // https://open.kattis.com/problems/keylogger
 // Rust
 // Easy
+// Keylogger
 
 use std::{collections::HashMap, io::stdin};
 

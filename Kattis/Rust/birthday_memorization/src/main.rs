@@ -1,6 +1,7 @@
 // https://open.kattis.com/problems/fodelsedagsmemorisering
 // Rust
 // Easy
+// Birthday Memorization
 
 use std::{collections::HashMap, io::stdin};
 

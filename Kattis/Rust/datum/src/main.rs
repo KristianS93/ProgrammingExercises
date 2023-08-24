@@ -1,6 +1,7 @@
 // https://open.kattis.com/problems/datum
 // Rust
 // Easy
+// Datum
 use std::io::stdin;
 fn main() {
     let mut day = 4;

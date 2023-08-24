@@ -1,6 +1,7 @@
 // https://open.kattis.com/problems/quickestimate
 // Rust
 // Easy
+// Quick Estimate
 
 use std::io::stdin;
 
