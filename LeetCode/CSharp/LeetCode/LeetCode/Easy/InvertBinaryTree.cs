@@ -1,5 +1,6 @@
 ﻿namespace LeetCode.Easy;
 
+//https://leetcode.com/problems/invert-binary-tree/
 public class InvertBinaryTree
 {
     public TreeNode InvertTree(TreeNode root)
