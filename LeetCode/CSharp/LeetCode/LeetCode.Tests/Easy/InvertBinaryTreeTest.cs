@@ -85,6 +85,6 @@ public class InvertBinaryTreeTest
         };
 
         var result = worker.InvertTree(root);
-        Assert.Equal(expected, result);
+        Assert.Equivalent(expected, result);
     }
 }

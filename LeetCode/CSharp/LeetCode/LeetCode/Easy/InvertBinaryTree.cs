@@ -4,30 +4,9 @@ public class InvertBinaryTree
 {
     public TreeNode InvertTree(TreeNode root)
     {
-        // if (root == null)
-        // {
-        //     return null;
-        // }
-        //
-        // if (root.left != null && root.right != null)
-        // {
-        //     InvertTree(root.left);
-        //     InvertTree(root.right);
-        //     (root.left, root.right) = (root.right, root.left);
-        // }
-        //
-        // if (root.left != null && root.right == null)
-        // {
-        //     InvertTree(root.left);
-        //     (root.left, root.right) = (null, root.left);
-        // }
-        // if (root.left == null && root.right != null)
-        // {
-        //     InvertTree(root.right);
-        //     (root.left, root.right) = (root.right, null);
-        // }
-        //
-        // return root;
+        if(root == null){
+            return null;
+        }
         (root.left, root.right) = (InvertTree(root.right), InvertTree(root.left));
         return root;
     }
