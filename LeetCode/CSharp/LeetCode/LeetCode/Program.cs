@@ -7,10 +7,10 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new DoubleReverse();
+        var x = new PowerOfTwo();
 
         Console.WriteLine(
-        x.IsSameAfterReversals(20)
+        x.IsPowerOfTwo(3)
             
             );
 
