@@ -7,18 +7,13 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new ValidUniqueMatrice();
-        var input = new[]
-        {
-            new int[] { 1, 1, 1 },
-            new int[] { 1, 2, 3 },
-            new int[] { 1, 3, 2 }
-        };
+        var x = new DoubleReverse();
 
         Console.WriteLine(
+        x.IsSameAfterReversals(20)
             
-        x.CheckValid(input)
             );
+
 
     }
 }
