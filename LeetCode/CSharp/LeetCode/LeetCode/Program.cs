@@ -1,5 +1,6 @@
 ﻿using BenchmarkDotNet.Running;
 using LeetCode.Easy;
+using LeetCode.Easy.DynamicProgramming;
 
 namespace LeetCode;
 
@@ -7,13 +8,10 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new PowerOfTwo();
+        var worker = new MinCostClimbingStairsEasy();
+        var n = new []{ 10, 15, 20};
 
-        Console.WriteLine(
-        x.IsPowerOfTwo(3)
-            
-            );
-
-
+        var result = worker.MinCostClimbingStairs(n);
+        Console.WriteLine(result);
     }
 }
