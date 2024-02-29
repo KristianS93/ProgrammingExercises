@@ -33,8 +33,7 @@ public class EvenOddTree
         Console.WriteLine(IsEvenOddTree(root));
     }
     public bool IsEvenOddTree(TreeNode root) {
-        bool isEven = false; // here we are in the second layer
-
+        bool isEven = false; 
         var queue = new Queue<TreeNode>();
         queue.Enqueue(root);
         
@@ -51,25 +50,15 @@ public class EvenOddTree
                 var node = queue.Dequeue(); // first iter this is root
                 
                 // handle even case
-                if (isEven)
+                if (isEven && (node.val % 2 != 0 || node.val >= lastVal))
                 {
-                    if (node.val % 2 != 0 || node.val >= lastVal)
-                    {
                         return false;
-                    }
                 }
                 // handle odd case
-                if (!isEven)
+                if (!isEven && (node.val % 2 == 0 || node.val <= lastVal))
                 {
-                    if (node.val % 2 == 0 || node.val <= lastVal)
-                    {
                         return false;
-                    }
                 }
-                // if (isEven && node.val % 2 != 0 || !isEven && node.val % 2 == 0 || lastVal <= node.val)
-                // {
-                //     return false;
-                // }
                 if (node.left != null)
                 {
                     queue.Enqueue(node.left);
@@ -84,6 +73,47 @@ public class EvenOddTree
 
             isEven = !isEven;
         }
+        return true;
+    }
+    
+    public bool IsEvenOddTree2(TreeNode root)  // smart solution, memorizing the level, ensures you only have to do 1 loop.
+    {
+        var curLevel = 0;
+        int curValue  = 0;
+
+        var queue = new Queue<(int, TreeNode)>();
+
+        queue.Enqueue((1, root));
+
+        while (queue.Count > 0)
+        {
+            (var level, var node) = queue.Dequeue();
+
+            if (level % 2 != node.val % 2)
+                return false;
+
+            if (level > curLevel)
+            {
+                curLevel = level;
+            }
+            else
+            {
+                if (level % 2 == 0 && node.val >= curValue)
+                    return false;
+
+                if (level % 2 == 1 && node.val <= curValue)
+                    return false;
+            }
+            
+            curValue = node.val;
+
+            if (node.left != null)
+                queue.Enqueue((level+1, node.left));
+
+            if (node.right != null)
+                queue.Enqueue((level+1, node.right));
+        }
+
         return true;
     }
 }
