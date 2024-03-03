@@ -8,7 +8,7 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new SquaresSortedArray();
+        var x = new RemoveNthNodeFromLinkedList();
         x.Run();
 
 
