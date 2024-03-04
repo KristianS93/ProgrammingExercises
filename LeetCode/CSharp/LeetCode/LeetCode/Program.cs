@@ -8,7 +8,7 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new RemoveNthNodeFromLinkedList();
+        var x = new BagOfTokens();
         x.Run();
 
 
