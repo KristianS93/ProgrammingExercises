@@ -8,7 +8,7 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new BagOfTokens();
+        var x = new MinimumLengthStringAfterDeleteSimilarEnds();
         x.Run();
 
 
