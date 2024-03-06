@@ -44,6 +44,26 @@ public class LinkedListCycle
 
         return false;
     }
+        // public bool HasCycle(ListNode head) { // this solution solves it faster with less memory print, however it is specific to the problem, where as the other is general.
+        //     if (head is null || head.next is null)
+        //     {
+        //         return false;
+        //     }
+        //
+        //     var currentNode = head;
+        //     while (currentNode is not null)
+        //     {
+        //         if (currentNode.val == Int32.MinValue)
+        //         {
+        //             return true;
+        //         }
+        //
+        //         currentNode.val = Int32.MinValue;
+        //         currentNode = currentNode.next;
+        //     }
+        //
+        //     return false;
+        // }
 }
 
 public class ListNode2 {
