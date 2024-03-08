@@ -8,7 +8,7 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new LinkedListCycle();
+        var x = new MaxFrequencyElement();
         x.Run();
 
 
