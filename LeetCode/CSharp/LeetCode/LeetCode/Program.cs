@@ -8,7 +8,7 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new MaxFrequencyElement();
+        var x = new ArrayIntersection();
         x.Run();
 
 
