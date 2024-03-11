@@ -8,7 +8,7 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new ArrayIntersection();
+        var x = new CustomSort();
         x.Run();
 
 
