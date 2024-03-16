@@ -8,7 +8,7 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new BinarySubarraysWithSum();
+        var x = new ProductArray();
         x.Run();
 
 
