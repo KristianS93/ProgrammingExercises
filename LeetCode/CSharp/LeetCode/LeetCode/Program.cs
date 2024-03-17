@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Running;
+using LeetCode.AC;
 using LeetCode.Easy;
 using LeetCode.Medium;
 
@@ -8,7 +9,7 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new ProductArray();
+        var x = new CoinChange();
         x.Run();
 
 
