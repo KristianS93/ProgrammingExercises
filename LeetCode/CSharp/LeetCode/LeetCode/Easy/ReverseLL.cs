@@ -8,33 +8,53 @@ public class ReverseLL
     {
         var ex1_h = new ListNode(1);
         var ex1_1 = new ListNode(2);
-        var ex1_2 = new ListNode(3);
-        var ex1_3 = new ListNode(4);
-        var ex1_4 = new ListNode(5);
+        var ex1_2 = new ListNode(4);
         ex1_h.next = ex1_1;
         ex1_1.next = ex1_2;
-        ex1_2.next = ex1_3;
-        ex1_3.next = ex1_4;
-        var res = ReverseList(ex1_h);
+        var ex2_h = new ListNode(1);
+        var ex2_1 = new ListNode(3);
+        var ex2_2 = new ListNode(4);
+        ex2_h.next = ex2_1;
+        ex2_1.next = ex2_2;
+        var res = MergeTwoLists(ex1_h, ex2_h);
         while (res is not null)
         {
             Console.Write(res.val + " ");
             res = res.next;
         }
     }
-    public ListNode ReverseList(ListNode head)
+    public ListNode MergeTwoLists(ListNode list1, ListNode list2)
     {
-        ListNode prev = null;
-        ListNode curr = head;
-
-        while (curr is not null)
+        ListNode dummy = new ListNode(0);
+        var head = dummy;
+        while (list1 is not null || list2 is not null)
         {
-            var temp = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = temp;
+            if (list1 is not null && list2 is not null)
+            {
+                if (list1.val <= list2.val)
+                {
+                    dummy.next = list1;
+                    list1 = list1.next;
+                    dummy = dummy.next;
+                }
+                else
+                {
+                    dummy.next = list2;
+                    list2 = list2.next;
+                    dummy = dummy.next;
+                }
+            } else if (list1 is not null && list2 is null)
+            {
+                dummy.next = list1;
+                return head.next;
+            }
+            else
+            {
+                dummy.next = list2;
+                return head.next;
+            }
         }
 
-        return prev;
+        return head.next;
     }
 }

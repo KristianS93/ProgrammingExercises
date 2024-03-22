@@ -7,32 +7,43 @@ public class NeetCode
 {
     public void Run()
     {
-        Console.WriteLine(Search(new int[]{-1,0,3,5,9,12}, 6));
-        // var res = TwoSum(new int[] { 2,7,11,15 }, 9);
-        // var str = JsonSerializer.Serialize(res);
-        // Console.WriteLine(str);
+        var res = TopKFrequent(new int[]{4,1,-1,2,-1,2,3}, 2);
+        var str = JsonSerializer.Serialize(res);
+        Console.WriteLine(str);
     }
-    public int Search(int[] nums, int target)
+    public int[] TopKFrequent(int[] nums, int k)
     {
-        var end = nums.Length-1;
-        var start = 0;
-        var mid = 0;
-        while (start <= end)
+        var ft = new Dictionary<int, int>();
+        
+        for (int i = 0; i < nums.Length; i++)
         {
-            mid = (start + end) / 2;
-            if (nums[mid] < target)
+            if (ft.ContainsKey(nums[i]))
             {
-                start = mid+1;
-            } else if (nums[mid] > target)
-            {
-                end = mid-1;
+                ft[nums[i]]++;
             }
             else
             {
-                return mid;
+                ft.Add(nums[i], 1);
             }
         }
 
-        return -1;
+        var heap = new PriorityQueue<KeyValuePair<int, int>, int>();
+
+        foreach (var kv in ft)
+        {
+            heap.Enqueue(kv, kv.Value);
+            if (heap.Count > k)
+            {
+                heap.Dequeue();
+            }
+        }
+
+        var res = new int[k];
+        for (int i = 0; i < k; i++)
+        {
+            res[i] = heap.Dequeue().Key;
+        }
+
+        return res;
     }
 }
