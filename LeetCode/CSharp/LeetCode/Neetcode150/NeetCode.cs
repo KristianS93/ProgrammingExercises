@@ -7,38 +7,32 @@ public class NeetCode
 {
     public void Run()
     {
-        Console.WriteLine(IsValid("(}")+ " - true");
+        Console.WriteLine(Search(new int[]{-1,0,3,5,9,12}, 6));
         // var res = TwoSum(new int[] { 2,7,11,15 }, 9);
         // var str = JsonSerializer.Serialize(res);
         // Console.WriteLine(str);
     }
-    public bool IsValid(string s)
+    public int Search(int[] nums, int target)
     {
-        // var stForward = new Stack<char>();
-        // foreach (var el in s)
-        // {
-        //     stForward.Push(el);
-        // } // ()[]{}
-
-        var stBackward = new Stack<char>();
-        var ss =s.Reverse();
-        foreach (var el in ss)
+        var end = nums.Length-1;
+        var start = 0;
+        var mid = 0;
+        while (start <= end)
         {
-            stBackward.Push(el);
-        }  // {}[]()
-
-        var i = 0;
-        while (stBackward.Count() > 0)
-        {
-            var bw = stBackward.Pop();
-            if (s[i] - bw == 1 || s[i] - bw == -1)
+            mid = (start + end) / 2;
+            if (nums[mid] < target)
             {
-                return false;
+                start = mid+1;
+            } else if (nums[mid] > target)
+            {
+                end = mid-1;
             }
-
-            i++;
+            else
+            {
+                return mid;
+            }
         }
 
-        return true;
+        return -1;
     }
 }

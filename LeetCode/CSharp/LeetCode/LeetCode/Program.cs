@@ -10,7 +10,7 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new PalindromeLL();
+        var x = new NeetCode();
         x.Run();
 
 
