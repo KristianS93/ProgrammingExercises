@@ -9,7 +9,7 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new CoinChange();
+        var x = new PalindromeLL();
         x.Run();
 
 
