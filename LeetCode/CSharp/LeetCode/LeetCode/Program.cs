@@ -10,7 +10,7 @@ public static class Program
 {
     public static void Main()
     {
-        var x = new ReverseLL();
+        var x = new PalindromeLL();
         x.Run();
 
 
